@@ -1,0 +1,346 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+div, article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* End CSS Reset */
+
+/* Fonts for site */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+* {
+  box-sizing: border-box;
+}
+
+/* Set up a grid system to use */
+.container {
+  width: 100%;
+}
+.row {
+  margin: 0 auto;
+  max-width: 900px;
+}
+.row:before, 
+.row:after {
+  content:"";
+  display: table ;
+  clear:both;
+}
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  width: 16.66%;
+  padding: 12px; 
+
+}
+.col-1{
+  width: 16.66%; 
+}
+.col-2{
+  width: 33.33%; 
+}
+.col-3{
+  width: 50%; 
+}
+.col-4{
+  width: 66.664%;
+}
+.col-5{
+  width: 83.33%;
+}
+.col-6{
+  width: 100%;
+}
+.outline, .outline *{
+    outline: 1px solid #F6A1A1; 
+}
+[class*='col-'] > p {
+ background-color: #FFC2C2; 
+ padding: 0;
+ margin: 0;
+ text-align: center; 
+ color: white; 
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 9pt/1.5em;
+  letter-spacing: -0.5px;
+  -webkit-font-smoothing: antialiased;
+  -font-smoothing: antialiased;
+}
+body {
+  background: #F5F0E9;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+label {
+  display: block;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+input {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: -1px;
+}
+input[type='text'] {
+  width: 100%;
+  background: #FFFFFF;
+  border: 2px solid #979797;
+  border-radius: 6px;
+  padding: 8px 10px 10px;
+  font-size: 14pt;
+}
+input[type="submit"] {
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: -.8px;
+  height: 60px;
+}
+.form-group {
+  padding: 20px 0;
+}
+.top {
+  padding-top: 0;
+}
+.form-actions {
+  padding-top: 20px;
+}
+.note {
+  display: block;
+  padding-top: 5px;
+  text-align: center;
+  font-size: .8em;
+  color: #444;
+}
+.header {
+  padding: 20px 40px;
+}
+.clear {
+  clear: both;
+}
+.header ul li {
+  display: inline;
+  
+}
+.header > .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.right {
+  position: relative;
+  float: right;
+}
+.left {
+  position: relative;
+  float: left;
+}
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 60px;
+}
+.hero > .logo {
+  display: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.hero > h1 {
+  font-weight: 800;
+  font-size: 4.4em;
+  letter-spacing: -4.2px;
+}
+.hero > h3 {
+  font-size: 2.2em;
+  font-weight: 300;
+  color: #4A4A4A;
+  letter-spacing: -1px;
+  line-height: 1.4;
+}
+.hero > h5 {
+  font-size: 1.2em;
+  line-height: 2;
+  color: #4A4A4A;
+}
+.hero > .button-bar {
+  padding-top: 30px;
+  display: block;
+  margin: 0 auto;
+}
+.hero > .button-bar li {
+  display: inline-table;
+  padding: 0 10px
+}
+.btn {
+  display: block;
+  border: 3px solid #000000;
+  box-shadow: inset 0px -3px 0px 0px #FFFFFF;
+  border-radius: 6px;
+  color: #000000;
+  width: 190px;
+  height: 50px;
+  line-height: 2.7;
+  font-weight: bold;
+}
+.btn-wide {
+  width: 100% !important;
+}
+.primary {
+  background: #FF6F54;
+}
+.primary:hover {
+  background-color: #F2644A;
+  color: #FFF;
+  box-shadow: inset 0px 0px 0px 0px #FFFFFF;
+}
+.secondary {
+  background-color: #9FD2E5;
+}
+.secondary:hover {
+  background-color: #8FC2D5;
+  color: #FFF;
+  box-shadow: inset 0px 0px 0px 0px #FFFFFF;
+}
+.thirdy{
+  background-color: #B7B47C;
+}
+.thirdy:hover {
+  background-color: #A9A670;
+  color: #FFF;
+  box-shadow: inset 0px 0px 0px 0px #FFFFFF;
+}
+.sign-up {
+  background-color: #FFF;
+  letter-spacing: -0.8px;
+  padding-bottom: 60px;
+}
+.sign-up > .intro {
+  margin: 0 auto;
+  max-width: 960px;
+  text-align: center;
+  padding: 60px 0;
+}
+.sign-up > .intro h1 {
+  font-weight: 300;
+  font-size: 3em;
+  color: #4A4A4A;
+}
+.sign-up > .intro h3 {
+  font-size: 1.5em;
+  line-height: 3;
+}
+.phone {
+  padding-top: 20px;
+  padding-right: 40px;
+  display: block;
+  margin: 0 auto;
+}
+.footer {
+  min-height: 400px;
+  background-color: #474747;
+  color: #FFF;
+  text-align: center;
+}
+.copyright {
+  padding: 80px 0;
+}
+.counter {
+  font-size: 3em;
+  text-align: center;
+  font-weight: 300;
+  padding-top: 80px;
+}
+.legal {
+  font-size: .8em;
+}
+
+@media all and (max-width:800px){
+    .col-1{ width: 33.33%;  }
+    .col-2{ width: 100%;    }
+    .col-3{ width: 83.33%;  }
+    .col-4{ width: 100%;    }
+    .col-5{ width: 100%;    }
+    .col-6{ width: 100%;    }
+
+    .row .col-2:last-of-type{
+        width: 100%; 
+    }
+
+    .row .col-5 ~ .col-1{
+        width: 100%; 
+    }
+
+    .hero > .button-bar li {
+      margin: 10px 0;
+    }
+
+    .sign-up > .intro h3 {
+      line-height: 1.3;
+    }
+
+    .phone {
+      padding-right: 0;
+    }
+}

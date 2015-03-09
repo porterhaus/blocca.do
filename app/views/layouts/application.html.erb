@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blocca.do</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="header">
+    <div class="row">
+      <ul class="left"
+        <li>Today is Sunday.</li>
+      </ul>
+      <ul class="right">
+        <li><a href="#">Sign up</a></li>
+        |
+        <li><a href="#">Sign in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <div class="footer">
+    <div class="row">
+      <h3 class="counter col-6">144,444,877,640,001,711,031 to-dos smashed and counting!</h3>
+
+      <p class="copyright col-6">
+        <bold>Not-so-fine print:</bold> <u>Terms of service</u>, <u>privacy policy</u>, <u>refund policy</u>, <u>security information</u>, <u>% uptime</u>, <u>system status</u>.
+      </p>
+      <p class="legal col-6">All text & design copyright &copy2015 porterhaus.com. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
