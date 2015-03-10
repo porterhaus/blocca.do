@@ -142,7 +142,7 @@ input {
   font-family: 'Open Sans', sans-serif;
   letter-spacing: -1px;
 }
-input[type='text'] {
+input[type='text'], input[type='email'], input[type='password'] {
   width: 100%;
   background: #FFFFFF;
   border: 2px solid #979797;
