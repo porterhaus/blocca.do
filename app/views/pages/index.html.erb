@@ -30,7 +30,7 @@
           <%= f.input :email, required: true, autofocus: true, placeholder: "Your.email.address@email.com" %>
         </div>
         <div class="form-group">
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+          <%= f.input :password, required: true, hint: "7 characters minimum. No emojis allowed." %>
         </div>
         <div class="form-group">
           <%= f.input :password_confirmation, required: true %>
