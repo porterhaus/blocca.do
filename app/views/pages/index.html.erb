@@ -20,14 +20,12 @@
     </div>
     <div class="col-4">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        
-        <%= devise_error_messages! %>
-
+        <%= f.error_notification %>
         <div class="form-group top">
-          <%= f.input :name, required: true, autofocus: true, placeholder: "George Washington" %>
+          <%= f.input :name, required: true, placeholder: "George Washington" %>
         </div>
         <div class="form-group">
-          <%= f.input :email, required: true, autofocus: true, placeholder: "Your.email.address@email.com" %>
+          <%= f.input :email, required: true, placeholder: "Your.email.address@email.com" %>
         </div>
         <div class="form-group">
           <%= f.input :password, required: true, hint: "7 characters minimum. No emojis allowed." %>
@@ -35,35 +33,11 @@
         <div class="form-group">
           <%= f.input :password_confirmation, required: true %>
         </div>
-
         <div class="form-actions">
           <%= f.button :submit, "Sign me up and get me my key", class: "btn btn-wide thirdy" %>
           <small class="note">By submitting your information you are agreeing to our Terms & Conditions.</small>
         </div>
       <% end %>
-      <!---<form>
-        <div class="form-group top">
-          <label>Your full name</label>
-          <input type="text" placeholder="George Washington"/>
-        </div>
-        <div class="form-group">
-          <label>Your email address</label>
-          <input type="text"/>
-        </div>
-        <div class="form-group">
-          <label>Enter a password</label>
-          <input type="text" placeholder="Must be at least 7 characters"/>
-        </div>
-        <div class="form-group">
-          <label>Confirm your password</label>
-          <input type="text"/>
-        </div>
-        <div class="form-actions">
-          <input type="submit" class="btn btn-wide thirdy" value="Sign me up and get me my key">
-          <small class="note">By submitting your information you are agreeing to our Terms & Conditions.</small>
-        </div>
-      </form>-->
     </div>
   </div>
 </div>
-

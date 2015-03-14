@@ -157,8 +157,11 @@ input[type="submit"] {
   letter-spacing: -.8px;
   height: 60px;
 }
+form {
+  padding-top: 35px;
+}
 .form-group {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 .top {
   padding-top: 0;
@@ -280,7 +283,7 @@ input[type="submit"] {
   margin: 0 auto;
   max-width: 960px;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 0 30px;
 }
 .sign-up > .intro h1 {
   font-weight: 300;
@@ -321,6 +324,27 @@ input[type="submit"] {
   padding-top: 4px;
   padding-left: 4px;
   color: #777;
+}
+.error {
+  display: block;
+  padding-top: 8px;
+  padding-left: 4px;
+  color: #870000;;
+}
+.field_with_errors > input  {
+  border: 2px solid #870000;;
+}
+
+.error_notification {
+  border: 2px solid #000;
+  background-color: #870000;
+  color: #FFF;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-weight: bold;
+}
+.error {
+  text-transform: capitalize;
 }
 
 @media all and (max-width:800px){
