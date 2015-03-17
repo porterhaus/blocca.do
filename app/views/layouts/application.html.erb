@@ -12,16 +12,25 @@
       <ul class="left"
         <li>Today is <%= day %>.</li>
       </ul>
-      <ul class="right">
-        <li><a href="#">Sign up</a></li>
+      <ul id="nav" class="right">
+        <li><%= link_to "Welcome", root_path %></li>
         |
-        <li><a href="#">Sign in</a></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
       </ul>
     </div>
   </div>
   <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+     <div class="alert alert-success">
+       <button type="button" class="close" data-dismiss="alert">&times;</button>
+       <%= flash[:notice] %>
+     </div>
+   <% elsif flash[:alert] %>
+     <div class="alert alert-warning">
+       <button type="button" class="close" data-dismiss="alert">&times;</button>
+       <%= flash[:alert] %>
+     </div>
+   <% end %>
     <%= yield %>
   </div>
   <div class="footer">
