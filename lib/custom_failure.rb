@@ -2,7 +2,7 @@
 # There is not a similar override available for the registration.
 class CustomFailure < Devise::FailureApp
   def redirect_url
-    root_path
+    pages_signin_path
   end
   def respond
     if http_auth?

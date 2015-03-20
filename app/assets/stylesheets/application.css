@@ -120,7 +120,6 @@ table {
  text-align: center; 
  color: white; 
 }
-
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 9pt/1.5em;
@@ -253,15 +252,32 @@ form {
 .hero > .sign-in > form {
   padding-top: 0
 }
+.forgot {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+.forgot-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
 .alert {
   margin: 0;
   padding: 10px;
   text-align: center;
-  background-color: #870000;
-  color: #FFFFFF;
   font-weight: bold;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
+}
+.alert-warning {
+  background-color: #870000;
+  color: #FFFFFF;
+}
+.alert-success {
+  background-color: #B7B47C;
+  color: #333;
 }
 .btn {
   display: block;
@@ -378,8 +394,8 @@ form {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  font-size: 1em;
-  text-transform: lowercase;;
+  line-height: 1.2;
+  
 }
 .user_remember_me {
   min-height: 20px;
@@ -390,7 +406,7 @@ form {
 }
 .checkbox input[type=checkbox] {
   position: absolute;
-  margin-left: -20px;
+  margin-left: -18px;
 }
 .close {
   display: none;

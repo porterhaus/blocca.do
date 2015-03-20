@@ -1,0 +1,19 @@
+<div class="hero">
+  <%= image_tag("key-logo.png", :class => "logo", :alt => "key-logo") %>
+  <h1>Blocca.do</h1>
+  <div class="sign-in">
+    <%= render "devise/sessions/sign_in" %>
+  </div>
+</div>
+<div class="sign-up">
+  <div class="intro">
+    <h1><a name="signupform">Forgot your password?</a></h1>
+    <h3>Don't worry it happens to the best of us. We got this.</h3>
+    <h5>Just enter your email in the form below and you're set!</h5>
+  </div>
+  <div class="row">
+    <div class="forgot">
+      <%= render "devise/passwords/forgot" %>
+    </div>
+  </div>
+</div>

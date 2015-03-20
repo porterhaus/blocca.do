@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def docs
   end
+
+  def signin
+  end
 end

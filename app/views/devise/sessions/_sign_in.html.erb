@@ -1,0 +1,15 @@
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="form-group">
+    <%= f.input :email, required: true, autofocus: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password, required: true %>
+  </div>
+  <div class="checkbox">
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+  <ul class="button-bar">
+    <%= f.button :submit, "I've got stuff to-do! Let's go", class: "btn btn-wide thirdy" %>
+  </ul>
+<% end %>

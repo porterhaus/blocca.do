@@ -1,9 +1,10 @@
 <div class="hero">
   <%= image_tag("key-logo.png", :class => "logo", :alt => "key-logo") %>
   <h1>Blocca.do</h1>
-  <div class="sign-in">
   
+  <div class="sign-in">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
       <div class="form-group">
         <%= f.input :email, required: false, autofocus: true %>
       </div>
@@ -14,17 +15,9 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
       <ul class="button-bar">
-        <%= f.button :submit, "I've got stuff to-do! Let's go", class: "btn btn-wide thirdy" %>
+        <%= f.button :submit, "I've got stuff to-do! Let's go", class: "btn btn-wide primary" %>    
       </ul>
+      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-link" %>
     <% end %>
   </div>
 </div>
-<div class="sign-up">
-  <div class="intro">
-    <h1><a name="signupform">Forgot your password?</a></h1>
-    <h3>Don't worry it happens to the best of us. We got this.</h3>
-    <h5>Just enter your email in the form below and you're in!</h5>
-  </div>
-
-</div>
-
