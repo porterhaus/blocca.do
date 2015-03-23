@@ -9,12 +9,18 @@
 <body>
   <div class="header">
     <div class="row">
-      <ul class="left"
-        <li>Today is <%= day %>.</li>
+      <ul class="left">
+      <% if current_user %>
+        <%= link_to(users_path) do %>
+          <%= image_tag("blocca-logo.png", :class => "blocca-logo", :alt => "blocca.do-logo") %>
+        <% end %>
+      <% else %>
+        <li><div class="today">Today is <%= day %>.</div></li>
+      <% end %>
       </ul>
-      <ul id="nav" class="right" data-no-turbolink>
+      <ul id="nav" class="right user-info" data-no-turbolink>
         <% if current_user %>
-              <li>Hello <%= current_user.email %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <li>Hello, <%= current_user.name %>! | <%= link_to "Profile", users_profile_path %> | <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
            <% else %>
               <li><%= link_to "Welcome", root_path %></li>
               |

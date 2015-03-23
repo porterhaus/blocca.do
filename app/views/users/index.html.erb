@@ -1,0 +1,12 @@
+<div class="row hero logo">
+ <%= image_tag("key-logo-horiz.png", :class => "logo", :alt => "key-logo-horiz") %>
+</div>
+<div class="row token-key">
+  <h2 class="col-4 key-code"><%= @user.auth_token %></h2>
+  <div class="col-2 push-right-10">
+    <a href="/users/regenerate" class="btn primary">Regenerate Key</a>
+  </div>
+</div>
+ <div class="row help">If you feel your key has been compromised, click regenerate to delete your current key and populate a new one.</div>
+<div class="row last">
+</div>

@@ -65,6 +65,7 @@ table {
 
 /* Fonts for site */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
 * {
   box-sizing: border-box;
 }
@@ -187,12 +188,15 @@ form {
 }
 .header ul li {
   display: inline;
-  
 }
 .header > .container {
   max-width: 960px;
   margin: 0 auto;
 }
+.user-info, .today {
+  padding-top: 14px;
+}
+
 .right {
   position: relative;
   float: right;
@@ -202,7 +206,6 @@ form {
   float: left;
 }
 .hero {
-  
   margin: 0 auto;
   text-align: center;
   padding-bottom: 60px;
@@ -218,6 +221,11 @@ form {
   font-weight: 800;
   font-size: 4.4em;
   letter-spacing: -4.2px;
+}
+.hero > h2 {
+  font-size: 3.4em;
+  font-weight: 800;
+  letter-spacing: -3.2px;
 }
 .hero > h3 {
   font-size: 2.2em;
@@ -289,6 +297,7 @@ form {
   height: 50px;
   line-height: 2.7;
   font-weight: bold;
+  text-align: center;
 }
 .btn-wide {
   width: 100% !important;
@@ -395,7 +404,6 @@ form {
   margin-top: 5px;
   margin-bottom: 10px;
   line-height: 1.2;
-  
 }
 .user_remember_me {
   min-height: 20px;
@@ -411,7 +419,28 @@ form {
 .close {
   display: none;
 }
-
+.token-key {
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 8px;
+  text-align: left;
+  padding: 10px;
+}
+.key-code {
+  padding-top: 22px;
+  font-weight: 100;
+  font-size: 2em;
+}
+.last {
+  padding: 20px 0;
+}
+.push-right-10 {
+  padding-left: 10%;
+}
+.help {
+  text-align: center;
+  padding-top: 10px;
+}
 @media all and (max-width:800px){
     .col-1{ width: 33.33%;  }
     .col-2{ width: 100%;    }
