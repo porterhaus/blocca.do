@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
    users_path
   end
 
+  def after_sign_up_path_for(resource)
+    users_path
+  end
+  
   protected
 
   def configure_permitted_parameters

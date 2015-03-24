@@ -208,7 +208,7 @@ form {
 .hero {
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   background-color: #F5F0E9;
 }
 .hero > .logo {
@@ -241,6 +241,7 @@ form {
 }
 .hero > .button-bar {
   padding-top: 30px;
+  padding-bottom: 30px;
   display: block;
   margin: 0 auto;
 }
