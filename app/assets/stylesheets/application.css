@@ -37,6 +37,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  -webkit-font-smoothing: antialiased !important;
 }
 /* HTML5 display-role reset for older browsers */
 div, article, aside, details, figcaption, figure, 
@@ -65,9 +66,10 @@ table {
 
 /* Fonts for site */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+
 * {
   box-sizing: border-box;
+
 }
 
 /* Set up a grid system to use */
@@ -78,7 +80,7 @@ table {
 }
 .row {
   margin: 0 auto;
-  max-width: 900px;
+
 }
 .row:before, 
 .row:after {
@@ -190,13 +192,31 @@ form {
   display: inline;
 }
 .header > .container {
-  max-width: 960px;
   margin: 0 auto;
 }
 .user-info, .today {
-  padding-top: 14px;
+  padding-top: 16px;
 }
+.site-nav {
+  padding-top: 16px;
+  padding-left: 24px;
+  text-transform: uppercase;
+}
+.site-nav li {
+  padding-left: 10px;
+}
+.site-nav li a {
+  padding: 10px 15px;
+  font-weight: normal;
+}
+.site-nav a:hover, .site-nav a.active {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
 
+  background-color: #222;
+  color: #FFF;
+}
 .right {
   position: relative;
   float: right;
@@ -426,21 +446,36 @@ form {
   border-radius: 8px;
   text-align: left;
   padding: 10px;
+  max-width: 900px;
 }
 .key-code {
-  padding-top: 22px;
+  padding-top: 32px;
   font-weight: 100;
   font-size: 2em;
+}
+.key-toggle {
+  padding-top: 15px;
+}
+.key-toggle a {
+  display: inline-table;
+  padding: 10px 10px;
+  margin-left: 5px;
 }
 .last {
   padding: 20px 0;
 }
+.push-right-5 {
+  padding-left: 3%;
+}
 .push-right-10 {
   padding-left: 10%;
 }
+.push-right-20 {
+  padding-left: 20%;
+}
 .help {
   text-align: center;
-  padding-top: 10px;
+  padding: 10px 0 40px 0;
 }
 @media all and (max-width:800px){
     .col-1{ width: 33.33%;  }

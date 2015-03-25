@@ -9,13 +9,16 @@
 <body>
   <div class="header">
     <div class="row">
-      <ul class="left">
       <% if current_user %>
-        <%= link_to(users_path) do %>
-          <%= image_tag("blocca-logo.png", :class => "blocca-logo", :alt => "blocca.do-logo") %>
-        <% end %>
+      <%= link_to(users_path) do %>
+        <%= image_tag("blocca-logo.png", :class => "blocca-logo left", :alt => "blocca.do-logo") %>
+      <% end %>
+      <ul class="left site-nav">
+          <li><%= link_to "Auth Token Key", users_path %></li>
+          <li><%= link_to "API Docs", users_path %></li>
       <% else %>
-        <li><div class="today">Today is <%= day %>.</div></li>
+      <ul class="left">
+          <li><div class="today">Today is <%= day %>.</div></li>
       <% end %>
       </ul>
       <ul id="nav" class="right user-info" data-no-turbolink>
