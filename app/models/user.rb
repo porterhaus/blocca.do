@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   before_create :generate_authentication_token
   before_create :set_user_role
+  before_create do
+    set_auth_token_flag(true)
+  end
 
   def generate_authentication_token
     self.auth_token = Devise.friendly_token
@@ -20,6 +23,20 @@ class User < ActiveRecord::Base
 
   def set_user_role
     self.role = 'member'
+  end
+
+  def set_auth_token_flag(flag)
+    self.auth_token_flag = flag
+  end
+
+  def reactivate_flag
+    self.set_auth_token_flag(true)
+    save
+  end
+
+  def deactivate_flag
+    self.set_auth_token_flag(false)
+    save
   end
 
   def admin?

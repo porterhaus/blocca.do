@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'users/dashboard'
   get 'users/profile'
   get 'users/regenerate'
+  get 'users/reactivate'
+  get 'users/deactivate'
 
   get 'pages/index'
   get 'docs', to: 'pages#docs', as: 'docs'
