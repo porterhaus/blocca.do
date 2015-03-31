@@ -66,6 +66,7 @@ table {
 
 /* Fonts for site */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 
 * {
   box-sizing: border-box;
@@ -439,11 +440,10 @@ form {
 .close {
   display: none;
 }
-.token-key {
+.well {
   background: #FFFFFF;
   border: 1px solid #D8D8D8;
   border-radius: 8px;
-  text-align: left;
   padding: 10px;
   max-width: 900px;
 }
@@ -454,6 +454,8 @@ form {
   padding-top: 22px;
   font-weight: 100;
   font-size: 2em;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
 }
 .key-toggle {
   padding-top: 15px;

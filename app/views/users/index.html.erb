@@ -4,7 +4,7 @@
   <h5>There are many like it but this one is yours.</h5>
 </div>
 <% if current_user.auth_token_flag == true %>
-  <div class="row token-key">
+  <div class="row well">
     <h2 class="col-3 key-code"><%= @user.auth_token %></h2>
     <div class="col-3 push-right-5 key-toggle">
         <%= link_to "Regenerate Key", users_regenerate_path, class: "btn primary"%>
@@ -13,7 +13,7 @@
   </div>
    <div class="row help">If you feel your key has been compromised, click regenerate to delete your current key and populate a new one.</div>
 <% else %>
-  <div class="row token-key">
+  <div class="row well">
     <h2 class="col-3 key-code deactive"><%= @user.auth_token %></h2>
     <div class="col-3 push-right-5 key-toggle">
       <%= link_to "Reactivate Key", users_reactivate_path, class: "btn btn-wide thirdy "%>
