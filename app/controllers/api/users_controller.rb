@@ -1,4 +1,5 @@
 class Api::UsersController < Api::ApiController
+  before_action :authenticate_with_token!, only: [:update, :destroy]
 
   def index
     respond_with User.all
@@ -18,9 +19,8 @@ class Api::UsersController < Api::ApiController
   end
 
   def update
-    @user = User.find(params[:id])
-
-    if @user.update(@user_params)
+    @user = current_user
+    if @user.update(user_params)
       render json: @user, status: 200, location: [:api, @user]
     else
       render json: { errors: @user.errors }, status: 422

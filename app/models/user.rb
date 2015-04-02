@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
     set_auth_token_flag(true)
   end
 
+  has_many :lists, dependent: :destroy
+
   def generate_authentication_token
     self.auth_token = Devise.friendly_token
   end

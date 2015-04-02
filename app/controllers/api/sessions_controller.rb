@@ -20,6 +20,7 @@ class Api::SessionsController < Api::ApiController
     if @user.nil?
       render json: { errors: "User session already destroyed." }, status: 422
     else
+      sign_out @user
       render json: { message: "User session destroyed."}, status:200
     end
   end 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'registrations'
   }
   
-  # Routes for registration website Blocca.do
+  # Routes for Registration Website Blocca.do
   resources :users, only: [:update, :index]
   get 'users/dashboard'
   get 'users/profile'
@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   
   # Routes for Api Blocca.do 
   namespace :api, defaults: { format: 'json'} do
-    resources :users, :only => [:index, :show, :create, :update, :destroy]
     resources :sessions, :only => [:create, :destroy]
+    resources :users, :only => [:show, :create, :update, :destroy]
+    resources :lists
   end
 end
