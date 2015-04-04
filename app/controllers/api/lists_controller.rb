@@ -12,16 +12,16 @@ class Api::ListsController < Api::ApiController
   def create
     @list = current_user.lists.build(list_params)
     if @list.save
-      render json: @list, status: 201, location: [:api, @list]
+      render json: @list, status: 201
     else
       render json: @list.errors, status: 422
     end
   end
 
   def update
-   @list = current_user.lists.find(params[:id])
-    if @list.update_attributes(list_params)
-      render json: @list, status: 200, location: [:api, @list]
+    @list = current_user.lists.find(params[:id])
+    if @list.update(list_params)
+      render json: @list, status: 200
     else
       render json: { errors: @list.errors }, status: 422
     end
@@ -38,5 +38,4 @@ class Api::ListsController < Api::ApiController
     def list_params
       params.require(:list).permit(:title, :viewable, :open)
     end
-
 end

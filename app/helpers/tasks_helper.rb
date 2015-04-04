@@ -1,2 +1,2 @@
-module TasksControllerHelper
+module TasksHelper
 end

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Routes for Api Blocca.do 
   namespace :api, defaults: { format: 'json'} do
     resources :sessions, :only => [:create, :destroy]
-    resources :users, :only => [:show, :create, :update, :destroy]
+    resources :users, :only => [:create, :update, :destroy]
     resources :lists do
       resources :tasks
     end

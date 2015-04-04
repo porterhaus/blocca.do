@@ -1,5 +1,5 @@
 class Api::UsersController < Api::ApiController
-  before_action :authenticate_with_token!, only: [:update, :destroy]
+  before_action :authenticate_with_token!
 
   def index
     respond_with User.all
