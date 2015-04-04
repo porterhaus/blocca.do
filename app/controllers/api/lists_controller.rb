@@ -2,11 +2,17 @@ class Api::ListsController < Api::ApiController
   before_action :authenticate_with_token!
 
   def index
-    respond_with current_user.lists
+    @lists = List.all
+    render json: @lists, status: 200
   end
 
   def show
-    respond_with current_user.lists.find(params[:id])
+    @list = List.find(params[:id])
+    if @list.viewable == true || @list.user_id == current_user.id
+      render json: @list, status: 200
+    else
+      render json: { errors: "This list cannot be viewed." }, status: 403
+    end
   end
   
   def create
@@ -19,11 +25,15 @@ class Api::ListsController < Api::ApiController
   end
 
   def update
-    @list = current_user.lists.find(params[:id])
-    if @list.update(list_params)
-      render json: @list, status: 200
+    @list = List.find(params[:id])
+    if @list.open == true || @list.user_id == current_user.id
+      if @list.update(list_params)
+        render json: @list, status: 200
+      else
+        render json: { errors: @list.errors }, status: 422
+      end
     else
-      render json: { errors: @list.errors }, status: 422
+      render json: { errors: "This list cannot be modified."}, status: 403
     end
   end
 
