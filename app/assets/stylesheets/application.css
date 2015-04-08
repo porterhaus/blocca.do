@@ -14,7 +14,7 @@
  *= require_self
  */
 
- /* http://meyerweb.com/eric/tools/css/reset/ 
+ /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -27,8 +27,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -40,7 +40,7 @@ time, mark, audio, video {
   -webkit-font-smoothing: antialiased !important;
 }
 /* HTML5 display-role reset for older browsers */
-div, article, aside, details, figcaption, figure, 
+div, article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -77,13 +77,13 @@ table {
 .container {
   width: 100%;
   background-color: #F5F0E9;
-
+  padding-bottom: 44px;
 }
 .row {
   margin: 0 auto;
   max-width: 960px;
 }
-.row:before, 
+.row:before,
 .row:after {
   content:"";
   display: table ;
@@ -93,17 +93,17 @@ table {
   float: left;
   min-height: 1px;
   width: 16.66%;
-  padding: 12px; 
+  padding: 12px;
 
 }
 .col-1{
-  width: 16.66%; 
+  width: 16.66%;
 }
 .col-2{
-  width: 33.33%; 
+  width: 33.33%;
 }
 .col-3{
-  width: 50%; 
+  width: 50%;
 }
 .col-4{
   width: 66.664%;
@@ -115,15 +115,15 @@ table {
   width: 100%;
 }
 .outline, .outline *{
-    outline: 1px solid #F6A1A1; 
+    outline: 1px solid #F6A1A1;
 }
-[class*='col-'] > p {
- background-color: #FFC2C2; 
+/*[class*='col-'] > p {
+ background-color: #FFC2C2;
  padding: 0;
  margin: 0;
- text-align: center; 
- color: white; 
-}
+ text-align: center;
+ color: white;
+}*/
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 9pt/1.5em;
@@ -281,6 +281,112 @@ form {
 }
 .hero > .sign-in > form {
   padding-top: 0
+}
+.api p {
+  line-height: normal;
+  font-size: 1em;
+}
+.api h2 {
+  margin: 1em 0 0.75em 0;
+  padding-top: 20px;
+  font-weight: normal;
+  font-size: 20px;
+}
+.api h3 {
+  font-size: 2.2em;
+  font-weight: 300;
+  color: #4A4A4A;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  padding-bottom: 10px;
+}
+.api h4.content-header {
+  font-size: 1.6em;
+  font-weight: normal;
+  color: #4A4A4A;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  padding: 16px 0 10px 0;
+}
+.api .menu-header {
+  padding: 12px 0 8px 0; 
+}
+.api ul {
+  padding-bottom: 10px;
+}
+.api ul li {
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+.api a {
+  color: #FF6F54;
+}
+.api .method-title-first {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0 0 15px 0;
+  padding-top: 25px;
+  text-transform: none;
+  color: #111;
+  line-height: 28px;
+}
+.api dt {
+  float: left;
+  width: 120px;
+  text-transform: uppercase;
+  color: #888;
+  text-align: right;
+}
+.api dl dt {
+  line-height: 20px;
+  padding: 1px 0 0 0;
+  margin: 0;
+  font-weight: normal;
+}
+.api dd {
+  margin: 0 0 20px 140px;
+}
+.api dl dd {
+  line-height: 22px;
+}
+.api .literal-block {
+  background: #FAFAFA;
+  padding: 10px;
+  border: 1px solid #DDD;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+.api dl dt.url-label {
+  padding-top: 11px;
+}
+.api ul.parameters {
+  margin: 0 0 1em 0;
+  font-size: .9em;
+  padding-bottom: 0 !important;
+}
+.api ul.parameters li {
+  background: transparent;
+  padding-left: 0;
+  margin: 0;
+  text-align: -webkit-match-parent;
+  padding-bottom: 20px;
+}
+.api ul.parameters .param {
+  font-weight: bold;
+  padding-right: 0.4em;
+}
+.api ul.parameters .param-info {
+  font-style: italic;
+  color: #777;
+  padding-right: 0.6em;
+}
+strong, b {
+  font-weight: bold;
+}
+pre {
+  overflow: auto;
+  padding: 2px;
+  display: block;
 }
 .forgot {
   max-width: 480px;
@@ -481,6 +587,12 @@ form {
   text-align: center;
   padding: 10px 0 40px 0;
 }
+.intro {
+  margin-bottom: 44px;
+}
+.actions {
+  max-width: 900px;
+}
 @media all and (max-width:800px){
     .col-1{ width: 33.33%;  }
     .col-2{ width: 100%;    }
@@ -490,11 +602,11 @@ form {
     .col-6{ width: 100%;    }
 
     .row .col-2:last-of-type{
-        width: 100%; 
+        width: 100%;
     }
 
     .row .col-5 ~ .col-1{
-        width: 100%; 
+        width: 100%;
     }
 
     .hero > .button-bar li {

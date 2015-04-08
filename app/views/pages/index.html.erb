@@ -1,11 +1,11 @@
-<div class="hero">
+ <div class="hero">
   <%= image_tag("checkmark-logo.png", :class => "logo", :alt => "checkmark-logo") %>
   <h1>Blocca.do</h1>
   <h3>What are you going to-do today?</h3>
   <h5>The world's most powerful API for managing to-do lists.</h5>
   <ul id="start" class="button-bar">
     <li><a href="#signupform" class="btn primary">Get Started</a></li>
-    <li><a href="#" class="btn secondary">API Docs</a></li>
+    <li><%= link_to "API Docs", docs_path, {:class => "btn secondary"} %></li>
   </ul>
 </div>
 <div class="sign-up">

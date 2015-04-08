@@ -36,4 +36,5 @@ class Api::TasksController < Api::ApiController
     def task_params
       params.require(:task).permit(:description, :list_id)
     end
+
 end

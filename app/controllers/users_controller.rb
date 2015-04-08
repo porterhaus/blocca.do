@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def deactivate
     @user = current_user
     if @user.deactivate_flag
-      flash[:notice] = "Your Auth token has been deactivated. You must reactivate before using!"
+      flash[:alert] = "Your Auth token has been deactivated. You must reactivate before using!"
       redirect_to users_path
     else
       flash[:alert] = "Error deactivating your auth_token. Please try to deactivate again!"
@@ -47,9 +47,8 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
- 
+
    def user_params
      params.require(:user).permit(:name, :email, :password, :auth_token, :auth_token_flag)
    end

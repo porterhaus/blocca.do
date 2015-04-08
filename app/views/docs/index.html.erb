@@ -1,0 +1,134 @@
+<div class="row hero">
+  <%= image_tag("api-logo.png", :class => "logo", :alt => "api-logo") %>
+  <h1>Blocca.do.api</h1>
+  <h3>Everybody's got something to do.</h3>
+</div>
+<div class="row api">
+  <div class="col-1">
+    <h4 class="menu-header">Auth</h4>
+    <ul>
+      <li><a href="#">/create</a></li>
+      <li><a href="#">/destroy</a></li>
+    </ul>
+    <h4 class="menu-header">Users</h4>
+    <ul>
+      <li><a href="#">/create</a></li>
+      <li><a href="#">/update</a></li>
+      <li><a href="#">/destroy</a></li>
+    </ul>
+    <h4 class="menu-header">Lists</h4>
+    <ul>
+      <li><a href="#">/lists</a></li>
+      <li><a href="#">/show</a></li>
+      <li><a href="#">/create</a></li>
+      <li><a href="#">/update</a></li>
+      <li><a href="#">/destroy</a></li>
+    </ul>
+    <h4 class="menu-header">Tasks</h4>
+    <ul>
+      <li><a href="#">/show</a></li>
+      <li><a href="#">/create</a></li>
+      <li><a href="#">/update</a></li>
+      <li><a href="#">/destroy</a></li>
+    </ul>
+  </div>
+  <div class="col-5">
+    <h3>Core API</h3>
+    <p>The Core API is the underlying interface for all of our official Blocca.do apps and our SDKs. It's the most direct way to access the API via JSON. This reference document is designed for those interested in developing for platforms not supported by the SDKs or for those interested in exploring API features in detail.</p>
+    
+    <h4 class="content-header">Error handling</h4>
+    <p>Errors are returned using standard HTTP error code syntax. Any additional info is included in the body of the return call, JSON-formatted.</p>
+
+    <div id="authentication" class="section">
+      <h2>Authentication</h2>
+      <p>Submit user credentials to create/destroy a secure session. </p>
+      <div id="session-create" class="section">
+        <h3 class="method-title-first">/api/sessions</h3>
+        <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Submit User credentials to obtain their <em>auth token key</em> to be used for the rest of the authentication process for the app session.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/sessions</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>POST</dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">email</span>
+                    <span class="param-info">required</span>
+                    The user's email addressed used to sign up for Blocca.do account.
+                  </li>
+                  <li>
+                    <span class="param">password</span>
+                    <span class="param-info">required</span> 
+                    The user's password.
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded User object that includes the auth-token-key assigned to them. This auth-token-key is used to authenticate all session app transactions.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object that includes the message: 'Invalid email or password'.</p>
+              <p>
+              <br/>
+                <strong>Sample response</strong>
+              </p>
+              <pre class="literal-block">{
+    "user": {
+        "id": 1,
+        "name": "John D. User",
+        "role": "member",
+        "auth_token": "ZPEXSRNWtvMJCzxuad1q",
+        "auth_token_flag": true,
+        "created_at": "2015-03-14T21:57:47.253Z",
+        "updated_at": "2015-04-07T23:05:20.924Z"
+    }
+}</pre>
+          </dd>
+        </dl>
+      </div>
+      <div id="session-destroy" class="section">
+        <h3 class="method-title-first">/api/session</h3>
+        <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Signs the user out of the active session.</p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/session</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>DELETE</dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">auth_token_key</span>
+                    <span class="param-info">required</span>
+                    Set as a URL parameter.
+                  </li>
+                </ul>
+              </p>
+            </dd>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
