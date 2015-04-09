@@ -17,15 +17,15 @@
     <h4 class="menu-header">Lists</h4>
     <ul>
       <li><a href="#">/all</a></li>
-      <li><a href="#">/show</a></li>
       <li><a href="#">/create</a></li>
+      <li><a href="#">/show</a></li>
       <li><a href="#">/update</a></li>
       <li><a href="#">/destroy</a></li>
     </ul>
     <h4 class="menu-header">Tasks</h4>
     <ul>
-      <li><a href="#">/show</a></li>
       <li><a href="#">/create</a></li>
+      <li><a href="#">/show</a></li>
       <li><a href="#">/update</a></li>
       <li><a href="#">/destroy</a></li>
     </ul>
@@ -331,7 +331,7 @@
           <dl>
           <dt>Description</dt>
             <dd>
-              <p>Get a specific list. The list must be set to 'viewable' or belong to the 'current_user'.
+              <p>Show a list. The list must be set to 'viewable' or belong to the 'current_user'.
               </p>
             </dd>
             <dt class="url-label">URL Structure</dt>
@@ -393,7 +393,7 @@
           <dl>
           <dt>Description</dt>
             <dd>
-              <p>Update a specific list.
+              <p>Update a list. The list must be set to 'open' or belong to the 'current_user'.
               </p>
             </dd>
             <dt class="url-label">URL Structure</dt>
@@ -474,12 +474,182 @@
               <p>On success, response code 204.</p>
             </dd>
         </div>
-
-
-
-
-
-
+      </div>
+      <div id="tasks" class="section">
+        <h2>Tasks</h2>
+        <p>The spice of life.</p>
+        <div id="task-create" class="section">
+          <h3 class="method-title-first">/api/list/:list_id/tasks#create</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Create a new task.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists/:list_id/tasks</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>POST</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">description</span>
+                    <span class="param-info">required</span>
+                    A description of the task.
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'task' object.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p><br/>
+              <p>On fail if list not open or current_user, response code 403. A json-encoded error object.</p>
+              <p class="sample">
+              <br/>
+                <strong>Sample response</strong>
+              </p>
+              <pre class="literal-block">
+{
+    "id": 4,
+    "description": "A task of all tasks.",
+    "list_id": 1,
+    "created_at": "2015-04-09T15:46:57.026Z",
+    "updated_at": "2015-04-09T15:46:57.026Z"
+}
+</pre>                
+            </dd>
+          </dl>
+        </div>  
+        <div id="task-show" class="section">
+          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#show</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Show a task.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists/:list_id/tasks/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>GET</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'task' object.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p><br/>
+              <p>On fail if list not viewable or current_user, response code 403. A json-encoded error object.</p>
+            </dd>
+          </dl>
+        </div> 
+        <div id="task-update" class="section">
+          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#update</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Update a task. The task's list must be set to 'open' or belong to the 'current_user'.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists/:list_id/tasks/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>PUT/PATCH</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+             <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">description</span>
+                    <span class="param-info">required</span>
+                    A description of the task.
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'task' object.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p><br/>
+              <p>On fail if list not open or current_user, response code 403. A json-encoded error object.</p>
+            </dd>
+          </dl>
+        </div> 
+        <div id="task-delete" class="section">
+          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#destroy</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Delete a task. The task's list must be set to 'open' or belong to the 'current_user'.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists/:list_id/tasks/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>DELETE</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 204.</p><br/>
+              <p>On fail if list not open or current_user, response code 403. A json-encoded error object.</p>
+            </dd>
+          </dl>
+        </div>   
       </div>
     </div>
   </div>
