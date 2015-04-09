@@ -17,4 +17,5 @@
 
 $(document).ready(function() {
    $('#start').localScroll({duration:800});
+   $('#menu').localScroll({duration:800});
 });

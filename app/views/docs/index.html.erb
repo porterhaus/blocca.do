@@ -4,30 +4,30 @@
   <h3>Everybody's got something to do.</h3>
 </div>
 <div class="row api">
-  <div class="col-1">
+  <div id="menu" class="col-1" data-turbolinks>
     <h4 class="menu-header">Auth</h4>
     <ul>
-      <li><a href="#">/create</a></li>
-      <li><a href="#">/destroy</a></li>
+      <li><a href="#sessionscreate">/create</a></li>
+      <li><a href="#sessionsdestroy">/destroy</a></li>
     </ul>
     <h4 class="menu-header">Users</h4>
     <ul>
-      <li><a href="#">/create</a></li>
+      <li><a href="#userscreate">/create</a></li>
     </ul>
     <h4 class="menu-header">Lists</h4>
     <ul>
-      <li><a href="#">/all</a></li>
-      <li><a href="#">/create</a></li>
-      <li><a href="#">/show</a></li>
-      <li><a href="#">/update</a></li>
-      <li><a href="#">/destroy</a></li>
+      <li><a href="#listsall">/all</a></li>
+      <li><a href="#listscreate">/create</a></li>
+      <li><a href="#listsshow">/show</a></li>
+      <li><a href="#listsupdate">/update</a></li>
+      <li><a href="#listsdestroy">/destroy</a></li>
     </ul>
     <h4 class="menu-header">Tasks</h4>
     <ul>
-      <li><a href="#">/create</a></li>
-      <li><a href="#">/show</a></li>
-      <li><a href="#">/update</a></li>
-      <li><a href="#">/destroy</a></li>
+      <li><a href="#taskscreate">/create</a></li>
+      <li><a href="#tasksshow">/show</a></li>
+      <li><a href="#tasksupdate">/update</a></li>
+      <li><a href="#tasksdestroy">/destroy</a></li>
     </ul>
   </div>
   <div class="col-5">
@@ -41,7 +41,7 @@
       <h2>Authentication</h2>
       <p>Submit user credentials to create/destroy a secure session. Obtain user auth-token-key for authenticating all session transactions.</p>
       <div id="session-create" class="section">
-        <h3 class="method-title-first">/api/sessions</h3>
+        <h3 class="method-title-first"><a name="sessionscreate">/api/sessions</a></h3>
         <dl>
           <dt>Description</dt>
             <dd>
@@ -95,7 +95,7 @@
         </dl>
       </div>
       <div id="session-destroy" class="section">
-        <h3 class="method-title-first">/api/session</h3>
+        <h3 class="method-title-first"><a name="sessionsdestroy">/api/session</a></h3>
         <dl>
           <dt>Description</dt>
             <dd>
@@ -131,7 +131,7 @@
       <h2>Users</h2>
       <p>Manage a User profile.</p>
       <div id="user-create" class="section">
-        <h3 class="method-title-first">/api/users</h3>
+        <h3 class="method-title-first"><a name="userscreate">/api/users</a></h3>
         <dl>
           <dt>Description</dt>
             <dd>
@@ -206,7 +206,7 @@
         <h2>Lists</h2>
         <p>Where stuff gets blocca.done.</p>
         <div id="list-all" class="section">
-          <h3 class="method-title-first">/api/lists</h3>
+          <h3 class="method-title-first"><a name="listsall">/api/lists</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -273,7 +273,7 @@
           </dl>
         </div>
         <div id="list-create" class="section">
-          <h3 class="method-title-first">/api/lists#create</h3>
+          <h3 class="method-title-first"><a name="listscreate">/api/lists#create</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -327,7 +327,7 @@
             </dd>
         </div>
         <div id="list-show" class="section">
-          <h3 class="method-title-first">/api/list/:id#show</h3>
+          <h3 class="method-title-first"><a name="listsshow">/api/list/:id#show</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -389,7 +389,7 @@
           </dl>
         </div>
         <div id="list-update" class="section">
-          <h3 class="method-title-first">/api/list/:id#update</h3>
+          <h3 class="method-title-first"><a name="listsupdate">/api/list/:id#update</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -444,7 +444,7 @@
             </dd>
         </div>
         <div id="list-destroy" class="section">
-          <h3 class="method-title-first">/api/list/:id#delete</h3>
+          <h3 class="method-title-first"><a name="listsdestroy">/api/list/:id#delete</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -479,7 +479,7 @@
         <h2>Tasks</h2>
         <p>The spice of life.</p>
         <div id="task-create" class="section">
-          <h3 class="method-title-first">/api/list/:list_id/tasks#create</h3>
+          <h3 class="method-title-first"><a name="taskscreate">/api/list/:list_id/tasks#create</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -538,7 +538,7 @@
           </dl>
         </div>  
         <div id="task-show" class="section">
-          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#show</h3>
+          <h3 class="method-title-first"><a name="tasksshow">/api/list/:list_id/tasks/:id#show</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -572,7 +572,7 @@
           </dl>
         </div> 
         <div id="task-update" class="section">
-          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#update</h3>
+          <h3 class="method-title-first"><a name="tasksupdate">/api/list/:list_id/tasks/:id#update</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>
@@ -618,7 +618,7 @@
           </dl>
         </div> 
         <div id="task-delete" class="section">
-          <h3 class="method-title-first">/api/list/:list_id/tasks/:id#destroy</h3>
+          <h3 class="method-title-first"><a name="tasksdestroy">/api/list/:list_id/tasks/:id#destroy</a></h3>
           <dl>
           <dt>Description</dt>
             <dd>

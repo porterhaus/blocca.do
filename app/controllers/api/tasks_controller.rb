@@ -3,7 +3,7 @@ class Api::TasksController < Api::ApiController
 
   def show
     @task = Task.find(params[:id])
-    if @task.viewable? || @task.list.user_id == current_user.id
+    if @task.viewable? || @task.user == current_user
       render json: @task, status: 200
     else
       render json: { errors: "This task cannot be viewed." }, status: 403
@@ -12,7 +12,8 @@ class Api::TasksController < Api::ApiController
 
   def create
     @list = List.find(params[:list_id])
-    if @list.open == true || @list.user_id == current_user.id
+
+    if @list.open? || @list.user == current_user
       @task = Task.new(task_params)
       @task.list_id = params[:list_id]
       if @task.save
@@ -27,7 +28,8 @@ class Api::TasksController < Api::ApiController
 
   def update
     @task = Task.find(params[:id])
-    if @task.open? || @task.list.user_id == current_user.id
+
+    if @task.open? || @task.user == current_user
       if @task.update(task_params)
         render json: @task, status: 200
       else
@@ -40,7 +42,8 @@ class Api::TasksController < Api::ApiController
 
   def destroy
     @task = Task.find(params[:id])
-    if @task.open? || @task.list.user_id == current_user.id
+
+    if @task.open? || @task.user == current_user
       @task.destroy
       head 204
     else
