@@ -9,7 +9,7 @@ class Api::ListsController < Api::ApiController
   def show
     @list = List.find(params[:id])
     if @list.viewable == true || @list.user_id == current_user.id
-      render json: @list, status: 200
+      render json: @list, serializer: ListPreviewSerializer, status: 200
     else
       render json: { errors: "This list cannot be viewed." }, status: 403
     end

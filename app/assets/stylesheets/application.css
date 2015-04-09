@@ -288,7 +288,7 @@ form {
 }
 .api h2 {
   margin: 1em 0 0.75em 0;
-  padding-top: 20px;
+  padding-top: 10px;
   font-weight: normal;
   font-size: 20px;
 }
@@ -369,7 +369,7 @@ form {
   padding-left: 0;
   margin: 0;
   text-align: -webkit-match-parent;
-  padding-bottom: 20px;
+  /*padding-bottom: 20px;*/
 }
 .api ul.parameters .param {
   font-weight: bold;
@@ -379,6 +379,9 @@ form {
   font-style: italic;
   color: #777;
   padding-right: 0.6em;
+}
+.api .sample {
+  padding-bottom: 5px;
 }
 strong, b {
   font-weight: bold;

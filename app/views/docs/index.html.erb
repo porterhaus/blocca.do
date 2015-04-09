@@ -13,12 +13,10 @@
     <h4 class="menu-header">Users</h4>
     <ul>
       <li><a href="#">/create</a></li>
-      <li><a href="#">/update</a></li>
-      <li><a href="#">/destroy</a></li>
     </ul>
     <h4 class="menu-header">Lists</h4>
     <ul>
-      <li><a href="#">/lists</a></li>
+      <li><a href="#">/all</a></li>
       <li><a href="#">/show</a></li>
       <li><a href="#">/create</a></li>
       <li><a href="#">/update</a></li>
@@ -41,7 +39,7 @@
 
     <div id="authentication" class="section">
       <h2>Authentication</h2>
-      <p>Submit user credentials to create/destroy a secure session. </p>
+      <p>Submit user credentials to create/destroy a secure session. Obtain user auth-token-key for authenticating all session transactions.</p>
       <div id="session-create" class="section">
         <h3 class="method-title-first">/api/sessions</h3>
         <dl>
@@ -78,7 +76,7 @@
             <dd>
               <p>On success, response code 200. A json-encoded User object that includes the auth-token-key assigned to them. This auth-token-key is used to authenticate all session app transactions.</p><br/>
               <p>On fail, response code 422. A json-encoded error object that includes the message: 'Invalid email or password'.</p>
-              <p>
+              <p class="sample">
               <br/>
                 <strong>Sample response</strong>
               </p>
@@ -105,7 +103,7 @@
             </dd>
             <dt class="url-label">URL Structure</dt>
             <dd>
-              <pre class="literal-block">https://blocca.do/api/session</pre>
+              <pre class="literal-block">https://blocca.do/api/session/[auth_token_key]</pre>
             </dd>
             <dt>Method</dt>
             <dd>DELETE</dd>
@@ -121,7 +119,294 @@
                 </ul>
               </p>
             </dd>
-
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded object that includes the message 'message: User session destroyed.'</p><br/>
+              <p>On fail, response code 422. A json-encoded object that includes the message 'errors: User session already destroyed.'</p>
+            </dd>
+        </dl>
+      </div>
+    </div>
+    <div id="users" class="section">
+      <h2>Users</h2>
+      <p>Manage a User profile.</p>
+      <div id="user-create" class="section">
+        <h3 class="method-title-first">/api/users</h3>
+        <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Create a new user profile and generate their auth-token-key.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/users</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>POST</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">name</span>
+                    <span class="param-info">required</span>
+                    First and last name or a username.
+                  </li>
+                  <li>
+                    <span class="param">email</span>
+                    <span class="param-info">required</span>
+                    The user's email address.
+                  </li>
+                  <li>
+                    <span class="param">password</span>
+                    <span class="param-info">required</span> 
+                    The user's password. A minimum of 8 characters required.
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 201. A json-encoded User object that includes the auth-token-key.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.
+              <p class="sample">
+              <br/>
+                <strong>Sample response</strong>
+              </p>
+              <pre class="literal-block">
+{
+  "user": {
+      "id": 12,
+      "name": "Bob Hope",
+      "role": "member",
+      "auth_token": "emq-MwRVQEokZYHxVnqP",
+      "auth_token_flag": true,
+      "created_at": "2015-04-08T20:41:42.697Z",
+      "updated_at": "2015-04-08T20:41:42.697Z"
+  }
+}
+</pre>
+            </dd>
+        </dl>
+      </div>
+      <div id="lists" class="section">
+        <h2>Lists</h2>
+        <p>Where stuff gets blocca.done.</p>
+        <div id="list-all" class="section">
+          <h3 class="method-title-first">/api/lists</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Get all app lists.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>GET</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'lists' object that includes a 'user' object.</p>
+              <p class="sample">
+              <br/>
+                <strong>Sample response</strong>
+              </p>
+              <pre class="literal-block">
+{
+    "lists": [
+        {
+            "id": 1,
+            "title": "My List of Goals",
+            "viewable": true,
+            "open": false,
+            "created_at": "2015-04-02T16:02:47.703Z",
+            "updated_at": "2015-04-02T16:02:47.703Z",
+            "user": {
+                "id": 1,
+                "name": "John D. User"
+            }
+        },
+        {
+            "id": 2,
+            "title": "My Tour List",
+            "viewable": true,
+            "open": false,
+            "created_at": "2015-04-02T16:24:29.198Z",
+            "updated_at": "2015-04-04T20:20:11.231Z",
+            "user": {
+                "id": 2,
+                "name": "Bob Hope"
+            }
+        },
+        ...
+    ]
+}
+</pre>
+              </dd>
+          </dl>
+        </div>
+        <div id="list-create" class="section">
+          <h3 class="method-title-first">/api/lists#create</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Create a new list.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>POST</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">title</span>
+                    <span class="param-info">required</span>
+                    Name of the list.
+                  </li>
+                  <li>
+                    <span class="param">viewable</span>
+                    <span class="param-info">required</span>
+                    Boolean. True = any Users can view the list. False = only the list owner can view the list. 
+                  </li>
+                  <li>
+                    <span class="param">open</span>
+                    <span class="param-info">required</span> 
+                    Boolean. True = any user can edit the list and associated tasks. False = only this list owner can edit the list and associated tasks. 
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'list' object that includes a 'user' object.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p>
+            </dd>
+        </div>
+        <div id="list-show" class="section">
+          <h3 class="method-title-first">/api/list/:id#show</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Get a specific list.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/lists/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>GET</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+        </div>
+        <div id="list-update" class="section">
+          <h3 class="method-title-first">/api/list/:id#update</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Update a specific list.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/list/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>PUT/PATCH</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+        </div>
+        <div id="list-destroy" class="section">
+          <h3 class="method-title-first">/api/list/:id#delete</h3>
+          <dl>
+          <dt>Description</dt>
+            <dd>
+              <p>Delete a specific list. User can only delete their lists.
+              </p>
+            </dd>
+            <dt class="url-label">URL Structure</dt>
+            <dd>
+              <pre class="literal-block">https://blocca.do/api/list/:id</pre>
+            </dd>
+            <dt>Method</dt>
+            <dd>DELETE</dd>
+            <dt>Headers</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">AUTHORIZATION</span>
+                    <span class="param-info">required</span>
+                    User's auth_token_key
+                  </li>
+                </ul>
+              </p>
+            </dd>
+        </div>
 
 
 

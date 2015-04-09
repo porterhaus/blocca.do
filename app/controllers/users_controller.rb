@@ -5,9 +5,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def dashboard
-  end
-
   def profile
   end
 
