@@ -331,7 +331,7 @@
           <dl>
           <dt>Description</dt>
             <dd>
-              <p>Get a specific list.
+              <p>Get a specific list. The list must be set to 'viewable' or belong to the 'current_user'.
               </p>
             </dd>
             <dt class="url-label">URL Structure</dt>
@@ -352,6 +352,41 @@
                 </ul>
               </p>
             </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'list' object that includes both a 'user' object and 'tasks' object collection.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p><br/>
+              <p>On fail if not viewable, response code 403. A json-encoded error object.</p>
+              <p class="sample">
+              <br/>
+                <strong>Sample response</strong>
+              </p>
+              <pre class="literal-block">
+{
+    "list_preview": {
+        "id": 1,
+        "title": "My Tour List",
+        "viewable": true,
+        "open": false,
+        "created_at": "2015-04-02T16:02:47.703Z",
+        "updated_at": "2015-04-02T16:02:47.703Z",
+        "user": {
+            "id": 1,
+            "name": "Bob Hope"
+        },
+        "tasks": [
+            {
+                "list_id": 1,
+                "id": 1,
+                "description": "Pick powder blue tux from tailor.",
+                "created_at": "2015-04-02T21:04:30.445Z",
+                "updated_at": "2015-04-02T21:04:30.445Z"
+            }
+        ]
+    }
+}
+</dd>
+          </dl>
         </div>
         <div id="list-update" class="section">
           <h3 class="method-title-first">/api/list/:id#update</h3>
@@ -379,6 +414,34 @@
                 </ul>
               </p>
             </dd>
+            <dt>Parameters</dt>
+            <dd>
+              <p>
+                <ul class="parameters">
+                  <li>
+                    <span class="param">title</span>
+                    <span class="param-info">required</span>
+                    Name of the list.
+                  </li>
+                  <li>
+                    <span class="param">viewable</span>
+                    <span class="param-info">required</span>
+                    Boolean. True = any Users can view the list. False = only the list owner can view the list. 
+                  </li>
+                  <li>
+                    <span class="param">open</span>
+                    <span class="param-info">required</span> 
+                    Boolean. True = any user can edit the list and associated tasks. False = only this list owner can edit the list and associated tasks. 
+                  </li>
+                </ul>
+              </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 200. A json-encoded 'list' object that includes a 'user' object.</p><br/>
+              <p>On fail, response code 422. A json-encoded error object.</p><br/>
+              <p>On fail if not open, response code 403. A json-encoded error object.</p>
+            </dd>
         </div>
         <div id="list-destroy" class="section">
           <h3 class="method-title-first">/api/list/:id#delete</h3>
@@ -405,6 +468,10 @@
                   </li>
                 </ul>
               </p>
+            </dd>
+            <dt>Returns</dt>
+            <dd>
+              <p>On success, response code 204.</p>
             </dd>
         </div>
 
