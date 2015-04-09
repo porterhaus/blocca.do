@@ -38,9 +38,13 @@ class Api::ListsController < Api::ApiController
   end
 
   def destroy
-    @list = current_user.lists.find(params[:id])
-    @list.destroy
-    head 204
+    @list = List.find(params[:id])
+    if @list.user_id == current_user.id
+      @list.destroy
+      head 204
+    else
+      render json: { errors: "This action cannot be accessed." }, status: 403
+    end
   end
 
   private
