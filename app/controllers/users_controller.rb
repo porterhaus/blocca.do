@@ -5,12 +5,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def profile
-  end
-
-  def update
-  end
-
   def regenerate
     @user = current_user
     if @user.regenerate_token

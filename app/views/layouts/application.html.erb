@@ -10,11 +10,11 @@
   <div class="header">
     <div class="row">
       <% if current_user %>
-      <%= link_to(users_path) do %>
+      <%= link_to(auth_path) do %>
         <%= image_tag("blocca-logo.png", :class => "blocca-logo left", :alt => "blocca.do-logo") %>
       <% end %>
       <ul class="left site-nav" data-no-turbolink>
-          <li><%= link_to "Auth Token Key", users_path %></li>
+          <li><%= link_to "Auth Token Key", auth_path %></li>
           <li><%= link_to "API Docs", docs_path %></li>
       <% else %>
       <ul class="left">
@@ -23,7 +23,7 @@
       </ul>
       <ul id="nav" class="right user-info" data-no-turbolink>
         <% if current_user %>
-              <li>Hello, <%= current_user.name %>! | <%= link_to "Profile", users_profile_path %> | <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <li>Hello, <%= current_user.name %>! | <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
            <% else %>
               <li><%= link_to "Welcome", root_path, {:class=>'active'} %></li>
               |

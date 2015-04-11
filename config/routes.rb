@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   }
 
   # Routes for Registration Website Blocca.do
-  resources :users, only: [:update, :index]
-  get 'users/dashboard'
+  # resources :users, only: [:update, :index]
+  get '/auth', to: 'users#index', as: 'auth'
   get 'users/profile'
   get 'users/regenerate'
   get 'users/reactivate'
