@@ -289,8 +289,9 @@ form {
 .api h2 {
   margin: 1em 0 0.75em 0;
   padding-top: 10px;
-  font-weight: normal;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -1px;
 }
 .api h3 {
   font-size: 2.2em;
