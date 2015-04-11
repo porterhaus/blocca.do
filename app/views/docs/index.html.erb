@@ -1,10 +1,10 @@
 <div class="row hero">
-  <%= image_tag("api-logo.png", :class => "logo", :alt => "api-logo") %>
+  <a name="#top"><%= image_tag("api-logo.png", :class => "logo", :alt => "api-logo") %></a>
   <h1>Blocca.do.api</h1>
   <h3>Everybody's got something to do.</h3>
 </div>
-<div class="row api">
-  <div id="menu" class="col-1" data-turbolinks>
+<div id="menu" class="row api">
+  <div class="col-1">
     <h4 class="menu-header">Auth</h4>
     <ul>
       <li><a href="#sessionscreate">/create</a></li>
@@ -93,6 +93,7 @@
 }</pre>
           </dd>
         </dl>
+        <a href="#top" class="right">Return to top</a>
       </div>
       <div id="session-destroy" class="section">
         <h3 class="method-title-first"><a name="sessionsdestroy">/api/session</a></h3>
@@ -125,6 +126,7 @@
               <p>On fail, response code 422. A json-encoded object that includes the message 'errors: User session already destroyed.'</p>
             </dd>
         </dl>
+        <a href="#top" class="right">Return to top</a>
       </div>
     </div>
     <div id="users" class="section">
@@ -201,6 +203,7 @@
 </pre>
             </dd>
         </dl>
+        <a href="#top" class="right">Return to top</a>
       </div>
       <div id="lists" class="section">
         <h2>Lists</h2>
@@ -271,6 +274,7 @@
 </pre>
               </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div>
         <div id="list-create" class="section">
           <h3 class="method-title-first"><a name="listscreate">/api/lists#create</a></h3>
@@ -325,6 +329,7 @@
               <p>On success, response code 200. A json-encoded 'list' object that includes a 'user' object.</p><br/>
               <p>On fail, response code 422. A json-encoded error object.</p>
             </dd>
+            <a href="#top" class="right">Return to top</a>
         </div>
         <div id="list-show" class="section">
           <h3 class="method-title-first"><a name="listsshow">/api/list/:id#show</a></h3>
@@ -387,6 +392,7 @@
 }
 </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div>
         <div id="list-update" class="section">
           <h3 class="method-title-first"><a name="listsupdate">/api/list/:id#update</a></h3>
@@ -442,6 +448,7 @@
               <p>On fail, response code 422. A json-encoded error object.</p><br/>
               <p>On fail if not open, response code 403. A json-encoded error object.</p>
             </dd>
+            <a href="#top" class="right">Return to top</a>
         </div>
         <div id="list-destroy" class="section">
           <h3 class="method-title-first"><a name="listsdestroy">/api/list/:id#delete</a></h3>
@@ -473,6 +480,7 @@
             <dd>
               <p>On success, response code 204.</p>
             </dd>
+            <a href="#top" class="right">Return to top</a>
         </div>
       </div>
       <div id="tasks" class="section">
@@ -536,6 +544,7 @@
 </pre>                
             </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div>  
         <div id="task-show" class="section">
           <h3 class="method-title-first"><a name="tasksshow">/api/list/:list_id/tasks/:id#show</a></h3>
@@ -570,6 +579,7 @@
               <p>On fail if list not viewable or current_user, response code 403. A json-encoded error object.</p>
             </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div> 
         <div id="task-update" class="section">
           <h3 class="method-title-first"><a name="tasksupdate">/api/list/:list_id/tasks/:id#update</a></h3>
@@ -616,6 +626,7 @@
               <p>On fail if list not open or current_user, response code 403. A json-encoded error object.</p>
             </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div> 
         <div id="task-delete" class="section">
           <h3 class="method-title-first"><a name="tasksdestroy">/api/list/:list_id/tasks/:id#destroy</a></h3>
@@ -649,6 +660,7 @@
               <p>On fail if list not open or current_user, response code 403. A json-encoded error object.</p>
             </dd>
           </dl>
+          <a href="#top" class="right">Return to top</a>
         </div>   
       </div>
     </div>

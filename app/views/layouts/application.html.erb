@@ -13,7 +13,7 @@
       <%= link_to(users_path) do %>
         <%= image_tag("blocca-logo.png", :class => "blocca-logo left", :alt => "blocca.do-logo") %>
       <% end %>
-      <ul class="left site-nav">
+      <ul class="left site-nav" data-no-turbolink>
           <li><%= link_to "Auth Token Key", users_path %></li>
           <li><%= link_to "API Docs", docs_path %></li>
       <% else %>
@@ -55,6 +55,9 @@
       <p class="copyright col-6">
         <bold>Not-so-fine print:</bold> <u>Terms of service</u>, <u>privacy policy</u>, <u>refund policy</u>, <u>security information</u>, <u>% uptime</u>, <u>system status</u>.
       </p>
+
+      <p class="social-media"><%= image_tag("twitter.png", :class => "twitter", :alt => "twitter-share") %><%= image_tag("facebook.png", :class => "facebook", :alt => "facebook-share") %></p>
+
       <p class="legal col-6">All text & design copyright &copy2015 porterhaus.com. All rights reserved.</p>
     </div>
   </div>

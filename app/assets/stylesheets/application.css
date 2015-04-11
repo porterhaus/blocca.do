@@ -383,6 +383,9 @@ form {
 .api .sample {
   padding-bottom: 5px;
 }
+#task-delete {
+  padding-bottom: 40px;
+}
 strong, b {
   font-weight: bold;
 }
@@ -489,17 +492,25 @@ pre {
   text-align: center;
 }
 .copyright {
-  padding: 80px 0;
+  padding: 40px 0 60px 0;
 }
 .counter {
   font-size: 3em;
   text-align: center;
   font-weight: 300;
-  padding-top: 80px;
+  padding-top: 40px;
+}
+.social-media {
+  opacity: .75;
+}
+.twitter {
+  padding-right: 20px;
 }
 .legal {
   font-size: .8em;
+  padding-top: 50px;
 }
+
 .hint {
   display: block;
   font-size: .8em;
@@ -595,6 +606,7 @@ pre {
 }
 .actions {
   max-width: 900px;
+  padding-bottom: 40px;
 }
 @media all and (max-width:800px){
     .col-1{ width: 33.33%;  }
