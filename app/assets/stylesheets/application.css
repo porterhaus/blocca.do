@@ -229,7 +229,7 @@ form {
 .hero {
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 30px;
+  padding: 30px;
   background-color: #F5F0E9;
 }
 .hero > .logo {
