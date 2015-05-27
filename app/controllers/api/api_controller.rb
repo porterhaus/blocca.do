@@ -12,7 +12,7 @@ class Api::ApiController < ApplicationController
   # Overide strong_parameters UnpermittedParameters method to display a json response
   rescue_from(ActionController::UnpermittedParameters) do |unpermitted_parameter_exception|
     error = {}
-    error[unpermitted_parameter_exception] = ['parameter is not allowed']
+    error[unpermitted_parameter_exception] = ['Parameter is not allowed.']
     response = { errors: [error] }
     respond_to do |format|
       format.json { render json: response, status: :unprocessable_entity }
