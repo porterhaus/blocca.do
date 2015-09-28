@@ -1,28 +1,8 @@
-== README
+= Blocca.do 
+An API for a to-do list application, so that users can authenticate and manage their information externally. Built during mentorship with Bloc.io. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Key features and notes:
 
-Things you may want to cover:
+- Incorporated user authentication using the devise gem. Implemented token based authentication for API routes. Users can create an account then receive a token to utilize in the request AUTHORIZATION header to authenticate each request thus maintain statelessness. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Design the demo site interface and design elements Sketch 3. 
